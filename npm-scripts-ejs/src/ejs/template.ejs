@@ -1,0 +1,22 @@
+<% var data = jsonData; %><!DOCTYPE html>
+<html lang="ja">
+<% include common/_head %>
+<body class="<%= data.class %> pc-site">
+<% include common/_header %>
+<% if (data.id === 'index') { %>
+<% include parts/_billboard %>
+<% } else { %>
+<% include parts/_breadcrumb %>
+<% } %>
+  <main id="main">
+<%- include('./page/' + data.page) %>
+  </main>
+  <% include common/_footer %>
+  <div class="toTop">
+    <i class="icon icon-bullet-up"></i>
+  </div>
+  <script src="js/tile.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

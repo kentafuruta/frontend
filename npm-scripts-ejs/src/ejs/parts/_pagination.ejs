@@ -1,0 +1,18 @@
+<%
+  var data = jsonData;
+  if (typeof parentData != "undefined") {
+    var parent = parentData;
+  }
+%><div class="pagination">
+  <div class="pagination__item pagination__prev"><a href=""></a></div>
+  <ul class="pagination__pages">
+<% if (typeof parent != "undefined") { %>
+    <li class="pagination__item pagination__archive"><a href="/<%- parent.id %>.html">一覧に戻る</a></li>
+<% } else { %>
+    <li class="pagination__item pagination__number"><a href="/blog.html?page=1">1</a></li>
+    <li class="pagination__item pagination__number"><a href="/blog.html?page=2">2</a></li>
+    <li class="pagination__item pagination__number"><a href="/blog.html?page=3">3</a></li>
+<% } %>
+  </ul>
+  <div class="pagination__item pagination__next"><a href=""></a></div>
+</div>
