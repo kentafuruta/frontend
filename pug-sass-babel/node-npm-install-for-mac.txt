@@ -1,0 +1,38 @@
+# homebrew等ですでにインストールされていたら、それをそのまま利用するかアンインストール
+$ brew uninstall nodebrew
+$ brew uninstall node
+
+# 確認コマンド(ターミナル)：
+node -v
+npm -v
+
+# 以下コマンドは全てターミナル操作
+
+# nodebrewインストール
+curl -L git.io/nodebrew | perl - setup
+vi ~/.bash_profile
+# 下記追加
+---------------
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+---------------
+
+source ~/.bash_profile
+
+
+# node.jsインストール
+nodebrew install-binary v4.2.2
+nodebrew use v4.2.2
+
+# npmアップデート
+npm install -g npm
+
+# gulpインストール（グローバル）
+npm install -g gulp-cli
+
+
+
+# プロジェクトディレクトリに移動し、プロジェクト固有のnodeパッケージインストール
+cd /path/to/project
+npm install
+
+

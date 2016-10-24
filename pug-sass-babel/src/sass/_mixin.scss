@@ -1,0 +1,41 @@
+@mixin font-line($fts, $lin: 24) {
+  $rem: $fts / 10;
+  $linS: $lin / $fts;
+  font-size: #{$fts}px;
+  font-size: #{$rem}rem;
+  line-height: $linS;
+}
+
+@mixin btn-line {
+  a {
+    display: inline-block;
+    padding: 0 25px;
+    height: 35px;
+    font-size: 14px;
+    line-height: 35px;
+    border: 1px solid #aaa;
+    i {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      border-color: $red01;
+      background-color: $red01;
+      color: #fff;
+    }
+  }
+}
+
+@mixin hover-text {
+  text-decoration: underline;
+  color: $red01;
+  cursor: pointer;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

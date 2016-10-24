@@ -1,0 +1,174 @@
+.icon {
+  display: inline-block;
+  &-bullet {
+    &-left::before {
+      content: "\f700";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-right::before {
+      content: "\f701";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-up::before {
+      content: "\f702";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-down::before {
+      content: "\f703";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+  }
+  &-bullet-circle {
+    &-left::before {
+      content: "\f704";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-right::before {
+      content: "\f705";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-up::before {
+      content: "\f706";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-down::before {
+      content: "\f707";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vvertical-align: middle;
+    }
+  }
+  &-bullet-square {
+    &-left::before {
+      content: "\f708";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-right::before {
+      content: "\f709";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-up::before {
+      content: "\f70a";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+    &-down::before {
+      content: "\f70b";
+      font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+      font-style: normal;
+      vertical-align: middle;
+    }
+  }
+  &-book::before {
+    content: "\f70c";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-search::before {
+    content: "\f70d";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-user::before {
+    content: "\f70e";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-pencil::before {
+    content: "\f70f";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-info::before {
+    content: "\f710";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-question::before {
+    content: "\f711";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-location::before {
+    content: "\f712";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-gift::before {
+    content: "\f713";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-comment03::before {
+    content: "\f723";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-download::before {
+    content: "\f732";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+  }
+  &-mobile::before {
+    content: "\f733";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-list::before {
+    content: "\f734";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-office::before {
+    content: "\f735";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-newtab::before {
+    content: "\f739";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  &-zip::before {
+    content: "\f736";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+  }
+  &-pdf::before {
+    content: "\f737";
+    font-family: 'rocketon-symbolsregular', Arial, sans-serif;
+    font-style: normal;
+  }
+}
