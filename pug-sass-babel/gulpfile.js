@@ -45,35 +45,21 @@ gulp.task('sprite', function () {
     var spriteData = gulp.src('./src/sprite/' + folder + '/*.png').pipe(spritesmith({
       imgName: 'sprite_' + folder + '.png',
       imgPath: 'sprite/sprite_' + folder + '.png',
-      cssName: '_' + folder + '.scss',
+      cssName: '_sprite-' + folder + '.scss',
       retinaSrcFilter: './src/sprite/' + folder + '/*@2x.png',
-      retinaImgName: 'sprite_' + folder + '@2x.png',
+      retinaImgName: 'sprite_'+ folder + '@2x.png',
       retinaImgPath: 'sprite/sprite_' + folder + '@2x.png',
       padding: 4,
-      cssTemplate: function(data) {
-        var opt = {
-          spriteName: folder,
-          className: 'ico',
-          data: data
-        };
-        // Sprite HTML Sample Create
-        gulp.src('./src/template/sprite-sample.html')
-          .pipe(consolidate('lodash', opt))
-          .pipe(rename({
-            basename: folder
-          }))
-          .pipe(gulp.dest('./dist/sprite'));
-        // Sprite CSS Sample Create
-        gulp.src('./src/template/sprite-sample.css')
-          .pipe(consolidate('lodash', opt))
-          .pipe(rename({
-            basename: folder
-          }))
-          .pipe(gulp.dest('./dist/sprite'));
-        return '';
-      }
+      cssOpts: {
+          functions: false
+      },
+      cssVarMap: (sprite) => {
+          sprite.name = "sprite-" + folder + '-' + sprite.name;
+      },
+      cssSpritesheetName: folder
     }));
-    spriteData.img.pipe(gulp.dest('./dist/sprite'));
+    spriteData.img.pipe(gulp.dest('./src/img'));
+     return spriteData.css.pipe(gulp.dest('./src/sass'));
   });
 });
 
