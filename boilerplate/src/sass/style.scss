@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import "setting";
+@import "mixin";
+//@import "sprite";
+
+/****************************************
+font
+****************************************/
+
+.noto {
+  font-family: "NotoSansCJKjp", sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+/****************************************
+add reset
+****************************************/
+@import "reset";
+
+/****************************************
+icon
+****************************************/
+@import "icon";
+
+/****************************************
+module
+****************************************/
+@import "module";
+
+h1 {
+  color: #f00;
+  font-size: 2.8rem;
+  line-height: 1.25;
+}
+h2 {
+  font-style: 24px;
+  color: #0f0;
+  list-style: 2;
+  transition: all cubic-bezier(0.39, 0.575, 0.565, 1);
+}
