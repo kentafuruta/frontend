@@ -1,0 +1,147 @@
+.c_both{
+  clear:both;
+}
+.b_white{
+  background-color:#fff;
+}
+.b_black{
+  background-color:#000;
+}
+.b_gray{
+  background-color:#888;
+}
+.b_red{
+  background-color:#f00;
+}
+.b_blue{
+  background-color:#00f;
+}
+.b_green{
+  background-color:#0f0;
+}
+.c_white{
+  color:#fff;
+}
+.c_black{
+  color:#000;
+}
+.c_gray{
+  color:#888;
+}
+.c_red{
+  color:#f00;
+}
+.c_blue{
+  color:#00f;
+}
+.c_green{
+  color:#0f0;
+}
+.d_none{
+  display:none;
+}
+.d_block{
+  display:block;
+}
+.d_table{
+  display:table;
+}
+.d_inline{
+  display:inline;
+}
+.d_inlineblock{
+  display:inline-block;
+}
+.f_left{
+  float:left;
+}
+.f_right{
+  float:right;
+}
+.f_none{
+  float:none;
+}
+@for $i from 1 through 20 {
+  .m_top#{$i*5}{
+    margin-top:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .m_bottom#{$i*5}{
+    margin-bottom:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .m_left#{$i*5}{
+    margin-left:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .m_right#{$i*5}{
+    margin-right:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .p_top#{$i*5}{
+    padding-top:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .p_bottom#{$i*5}{
+    padding-bottom:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .p_left#{$i*5}{
+    padding-left:5px *$i;
+  }
+}
+@for $i from 1 through 20 {
+  .p_right#{$i*5}{
+    padding-right:5px *$i;
+  }
+}
+.p_relative{
+  position:relative;
+}
+.p_absolute{
+  position:absolute;
+}
+.t_underline{
+  text-decoration:underline;
+}
+.t_none{
+  text-decoration:none;
+}
+.t_bold{
+  font-weight:bold;
+}
+.t_center{
+  text-align:center;
+}
+.t_left{
+  text-align:left;
+}
+.t_right{
+  text-align:right;
+}
+.v_top{
+  vertical-align:top;
+}
+.v_middle{
+  vertical-align:middle;
+}
+.v_bottom{
+  vertical-align:bottom;
+}
+.v_hidden{
+  visibility:hidden;
+}
+.v_visible{
+  visibility:visible;
+}
+@for $i from 1 through 20 {
+  .w_#{$i*5}{
+    width:5% *$i;
+  }
+}
