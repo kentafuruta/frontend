@@ -1,11 +1,14 @@
 @charset "UTF-8";
 @import "setting";
 @import "mixin";
-//@import "sprite";
+@import "font";
 
 /****************************************
 font
 ****************************************/
+.yuGothic {
+  font-family: MyYuGothicM, YuGothic, sans-serif;
+}
 
 .noto {
   font-family: "NotoSansCJKjp", sans-serif;
