@@ -209,6 +209,26 @@ module
   }
 }
 
+#global-footer {
+
+}
+
+#to-top {
+  position: fixed;
+  bottom: -70px;
+  right: 20px;
+  transition: bottom .6s ease 0.2s;
+  &.on {
+    bottom: 20px;
+  }
+  a {
+    background-color: rgba(#666, .8);
+    display: block;
+    height: 50px;
+    width: 50px;
+  }
+}
+
 /****************************************
 * page style
 ****************************************/

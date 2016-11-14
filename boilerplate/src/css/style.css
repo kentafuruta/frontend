@@ -611,6 +611,24 @@ module
   font-size: 1.8rem;
 }
 
+#to-top {
+  position: fixed;
+  bottom: -70px;
+  right: 20px;
+  transition: bottom .6s ease 0.2s;
+}
+
+#to-top.on {
+  bottom: 20px;
+}
+
+#to-top a {
+  background-color: rgba(102, 102, 102, 0.8);
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
 /****************************************
 * page style
 ****************************************/
