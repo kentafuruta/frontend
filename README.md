@@ -24,9 +24,9 @@ npm >= 3.8
 |:-----------|:-------------|:------------|
 | HTML       | なし         |              |
 | CSS        | sass         | gulpタスク   |
-| JavaScript | es2015       | gulpタスク   |
+| JavaScript | es2015       | gulpタスク moduleディレクトリ内で作業する。   |
 | image      | imagemin     | gulpタスク   |
-| sprite     | spritesmith  | gulpタスク   |
+| sprite     | spritesmith  | gulpタスク spriteディレクトリに任意のフォルダを作って画像を入れる   |
 | server     | browser-sync |             |
 
 
