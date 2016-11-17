@@ -3,6 +3,7 @@
 var autoprefixer = require('autoprefixer'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
+    ejs = require('gulp-ejs'),
     fs = require('fs'),
     path = require('path'),
     gulp = require('gulp'),
@@ -27,6 +28,29 @@ var getFolders = function(dir_path) {
 };
 var browsers = ['> 5%', 'ie 8'];
 
+/********************************************
+ * htmlタスク
+ *********************************************/
+/* 開発用 */
+gulp.task('html', function() {
+  return gulp.src('./src/**/ejs/!(_)*.ejs', {base: 'src'})
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(ejs('', {'ext': '.html'}))
+    .pipe(rename(function (path) {
+      path.dirname = path.dirname.replace(/ejs/g, '')
+    }))
+    .pipe(gulp.dest('src'));
+});
+/* リリース用 */
+gulp.task('html:release', function() {
+  return gulp.src('./src/**/ejs/!(_)*.ejs', {base: 'src'})
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(ejs('', {'ext': '.html'}))
+    .pipe(rename(function (path) {
+      path.dirname = path.dirname.replace(/ejs/g, '')
+    }))
+    .pipe(gulp.dest('release'));
+});
 
 /********************************************
  * jsタスク
@@ -192,6 +216,7 @@ gulp.task('iconfont', function() {
  * watchタスク
  *********************************************/
 gulp.task('watch', function () {
+  gulp.watch('./src/**/*.ejs', ['html']);
   gulp.watch('./src/**/*.js', ['js']);
   gulp.watch('./src/**/*.scss', ['css']);
   gulp.watch('src/img/*', ['image']);
@@ -207,4 +232,4 @@ gulp.task('default', ['watch']);
 /********************************************
  * release タスク
  *********************************************/
-gulp.task('release', ['js:release', 'css:release', 'image:release']);
+gulp.task('release', ['html:release', 'js:release', 'css:release', 'image:release']);
