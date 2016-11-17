@@ -219,7 +219,6 @@ gulp.task('watch', function () {
   gulp.watch('./src/**/*.ejs', ['html']);
   gulp.watch('./src/**/*.js', ['js']);
   gulp.watch('./src/**/*.scss', ['css']);
-  gulp.watch('src/img/*', ['image']);
   gulp.watch('src/sprite/*', ['sprite']);
   gulp.watch('src/font/**/*.svg', ['iconfont']);
 });
