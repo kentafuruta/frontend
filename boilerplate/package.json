@@ -23,13 +23,13 @@
     "watch:gulp": "gulp watch",
     "watch:vender": "watchify ./src/js/vender/vender.js -o ./src/js/vender.js -p [ parcelify -wo ./src/css/vender.css ] --debug",
     "release": "npm-run-all -s clean:release copy:release -p release:*",
-    "release:gulp": "gulp",
+    "release:gulp": "gulp release",
     "release:font": "cpx \"./src/font/*\" ./release/font/",
     "release:vender": "mkdirp ./release/js/ && browserify ./src/js/vender/vender.js -o ./release/js/vender.js -p [ parcelify -o ./release/css/vender.css ] --debug",
     "clean:release": "rimraf **/.DS_Store && rimraf ./release/",
     "copy": "cpx ./node_modules/normalize.css/normalize.css ./src/css/",
-    "copy:release": "cpx \"./src/*\" ./release/ && cpx ./node_modules/normalize.css/normalize.css ./release/css/ && cpx \"./src/**/*.html\" ./release/",
-    "server": "browser-sync start -s ./ -f ./src/* --startPath ./src/"
+    "copy:release": "cpx \"./src/*\" ./release/ && cpx ./node_modules/normalize.css/normalize.css ./release/css/",
+    "server": "browser-sync start -s ./src -f ./src/*"
   },
   "keywords": [
     "frontend",
