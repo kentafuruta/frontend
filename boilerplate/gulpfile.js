@@ -19,7 +19,7 @@ var autoprefixer = require('autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
     postcss = require('gulp-postcss'),
     rename = require('gulp-rename');
-    
+
 // Functions
 var getFolders = function(dir_path) {
   return fs.readdirSync(dir_path).filter(function(file) {
@@ -39,44 +39,32 @@ gulp.task('html', function() {
     .pipe(rename(function (path) {
       path.dirname = path.dirname.replace(/ejs/g, '')
     }))
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('public'));
 });
-/* リリース用 */
-gulp.task('html:release', function() {
-  return gulp.src('./src/**/ejs/!(_)*.ejs', {base: 'src'})
-    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-    .pipe(ejs('', {'ext': '.html'}))
-    .pipe(rename(function (path) {
-      path.dirname = path.dirname.replace(/ejs/g, '')
-    }))
-    .pipe(gulp.dest('release'));
-});
+
 
 /********************************************
  * jsタスク
  *********************************************/
 /* 開発用 */
 gulp.task('js', function() {
-  return gulp.src('./src/**/module/*.js', {base: 'src'})
+  return gulp.src(['./src/**/*.js', '!./src/assets/js/vendor/*'], {base: 'src'})
     .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['latest']
     }))
     //.pipe(concat('all.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('public'));
 });
 /* リリース用 */
 gulp.task('js:release', function() {
-  return gulp.src('./src/**/module/*.js', {base: 'src'})
+  return gulp.src(['./src/**/*.js', '!./src/assets/js/vendor/*'], {base: 'src'})
     .pipe(babel({
         presets: ['latest']
     }))
     //.pipe(concat('all.js'))
-    .pipe(rename(function (path) {
-      path.dirname = path.dirname.replace(/module/g, '')
-    }))
-    .pipe(gulp.dest('release'));
+    .pipe(gulp.dest('public'));
 });
 
 /********************************************
@@ -96,11 +84,8 @@ gulp.task('css', function() {
     .pipe(postcss([
       require('autoprefixer')({browsers: browsers})
     ]))
-    .pipe(rename(function (path) {
-      path.dirname = path.dirname.replace(/sass/g, 'css')
-    }))
     .pipe(sourcemaps.write('./')) // cssと同じ階層に出力する。
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('public'));
 });
 /* リリース用 */
 gulp.task('css:release', function() {
@@ -114,70 +99,84 @@ gulp.task('css:release', function() {
     .pipe(postcss([
       require('autoprefixer')({browsers: browsers})
     ]))
-    .pipe(rename(function (path) {
-      path.dirname = path.dirname.replace(/sass/g, 'css')
-    }))
-    .pipe(gulp.dest('release'));
+    .pipe(gulp.dest('public'));
 });
 
 /********************************************
  * imageタスク
  *********************************************/
 gulp.task('image:release', function() {
-  return gulp.src(['./src/**/*.{jpg,png,svg,gif}', '!./src/sprite/**/*'], {base: 'src'})
-      .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-      .pipe(imageMin({
-        optimizationLevel: 7,
-        interlaced: true,
-        progressive: true,
-        use: [pngquant({
-          quality: '65-80',
-          speed: 1
-        })]
-      }))
-      .pipe(gulp.dest('release'))
+  return gulp.src(['./src/**/*.{jpg,png,svg,gif}', '!./src/assets/sprite/**/*', '!./src/assets/font/**/*'], {base: 'src'})
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(imageMin({
+      optimizationLevel: 7,
+      interlaced: true,
+      progressive: true,
+      use: [pngquant({
+        quality: '65-80',
+        speed: 1
+      })]
+    }))
+    .pipe(gulp.dest('public'));
 });
 
 /********************************************
  * spriteタスク
  *********************************************/
 gulp.task('sprite', function () {
-  var folders = getFolders('./src/sprite/');
+  var folders = getFolders('./src/assets/sprites/');
   folders.forEach(function(folder){
-    var spriteData = gulp.src('./src/sprite/' + folder + '/*.png')
-    .pipe(spritesmith({
-      imgName: 'sprite_' + folder + '.png', // スプライトシート名
-      imgPath: '../img/sprite_' + folder + '.png', // CSSからスプライトシートまでのパス
-      cssName: '_sprite-' + folder + '.scss', // スプライトシート用のSassの変数
-      // retinaSrcFilter: './src/sprite/' + folder + '/*@2x.png',
-      // retinaImgName: 'sprite_'+ folder + '@2x.png',
-      // retinaImgPath: 'sprite/sprite_' + folder + '@2x.png',
-      padding: 4,
-      cssOpts: {
-          //functions: false
-      },
-      cssVarMap: (sprite) => {
-          sprite.name = "sprite-" + folder + '-' + sprite.name; // sprite-(個別パーツ名)で変数を使うための設定
-      },
-      cssSpritesheetName: folder
-    }));
-    spriteData.img.pipe(gulp.dest('./src/img/'));
-     return spriteData.css.pipe(gulp.dest('./src/sass/'));
-  });
+    var spriteData = gulp.src('./src/assets/sprites/' + folder + '/*.png')
+      .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+      .pipe(spritesmith({
+        imgName: 'sprite_' + folder + '.png',
+        imgPath: '../img/sprite_' + folder + '.png',
+        cssName: folder + '.scss',
+        retinaSrcFilter: './src/assets/sprites/' + folder + '/*@2x.png',
+        retinaImgName: 'sprite_' + folder + '@2x.png',
+        retinaImgPath: '../img/sprite_' + folder + '@2x.png',
+        padding: 4,
+        cssTemplate: function(data) {
+          var opt = {
+            spriteName: folder,
+            className: 'ico',
+            data: data
+          };
+          // Sprite HTML Sample Create
+          gulp.src('./src/assets/template/sprite-sample.html')
+            .pipe(consolidate('lodash', opt))
+            .pipe(rename({
+              basename: 'index'
+            }))
+            .pipe(gulp.dest('./src/assets/sprite_' +folder));
+          // Sprite CSS Sample Create
+          gulp.src('./src/assets/template/sprite-sample.css')
+            .pipe(consolidate('lodash', opt))
+            .pipe(rename({
+              basename: 'index'
+            }))
+            .pipe(gulp.dest('./src/assets/sprite_' + folder));
+          return '';
+        }
+      }));
+    spriteData.img
+      .pipe(gulp.dest('./src/assets/img/'));
+    return spriteData.css.pipe(gulp.dest('./src/assets/sass/'));
+  })
 });
 
 /********************************************
  * Web Fontタスク
  *********************************************/
 gulp.task('iconfont', function() {
-  var folders = getFolders('./src/font/');
+  var folders = getFolders('./src/assets/font/');
   folders.forEach(function(folder){
-    gulp.src('./src/font/' + folder + '/*.svg')
+    gulp.src('./src/assets/font/' + folder + '/*.svg')
       .pipe(iconfont({
         fontName: folder,
         prependUnicode: true,
         startUnicode: 0xF001,
-        formats: ['ttf', 'eot', 'woff'],
+        formats: ['ttf', 'eot', 'woff', 'svg'],
         normalize: true,
         fontHeight: 500
       }))
@@ -190,25 +189,25 @@ gulp.task('iconfont', function() {
             };
           }),
           fontName: folder,
-          fontPath: './font/',
-          className: 'ico'
+          fontPath: '../font/',
+          className: 'icon'
         };
         // Web Font CSS Sample Create
-        gulp.src('./src/template/iconfont-sample.css')
+        gulp.src('./fontawesome/iconfont-sample.css')
           .pipe(consolidate('lodash', opt))
           .pipe(rename({
             basename: folder
           }))
-          .pipe(gulp.dest('./src/font'));
+          .pipe(gulp.dest('assets/font'));
         // Web Font HTML Sample Create
-        gulp.src('./src/template/iconfont-sample.html')
+        gulp.src('./fontawesome/iconfont-sample.html')
           .pipe(consolidate('lodash', opt))
           .pipe(rename({
             basename: folder
           }))
-          .pipe(gulp.dest('./src/font'));
+          .pipe(gulp.dest('assets/'));
       })
-      .pipe(gulp.dest('./src/font'));
+      .pipe(gulp.dest('./public/font'));
   });
 });
 
