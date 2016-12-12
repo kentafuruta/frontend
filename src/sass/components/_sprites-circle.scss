@@ -1,0 +1,238 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$sprites-circle-cart-name: 'sprites-circle-cart';
+$sprites-circle-cart-x: 0px;
+$sprites-circle-cart-y: 0px;
+$sprites-circle-cart-offset-x: 0px;
+$sprites-circle-cart-offset-y: 0px;
+$sprites-circle-cart-width: 105px;
+$sprites-circle-cart-height: 105px;
+$sprites-circle-cart-total-width: 213px;
+$sprites-circle-cart-total-height: 213px;
+$sprites-circle-cart-image: '../images/sprites_circle.png';
+$sprites-circle-cart: (0px, 0px, 0px, 0px, 105px, 105px, 213px, 213px, '../images/sprites_circle.png', 'sprites-circle-cart', );
+$sprites-circle-pc-name: 'sprites-circle-pc';
+$sprites-circle-pc-x: 109px;
+$sprites-circle-pc-y: 0px;
+$sprites-circle-pc-offset-x: -109px;
+$sprites-circle-pc-offset-y: 0px;
+$sprites-circle-pc-width: 104px;
+$sprites-circle-pc-height: 105px;
+$sprites-circle-pc-total-width: 213px;
+$sprites-circle-pc-total-height: 213px;
+$sprites-circle-pc-image: '../images/sprites_circle.png';
+$sprites-circle-pc: (109px, 0px, -109px, 0px, 104px, 105px, 213px, 213px, '../images/sprites_circle.png', 'sprites-circle-pc', );
+$sprites-circle-search-name: 'sprites-circle-search';
+$sprites-circle-search-x: 0px;
+$sprites-circle-search-y: 109px;
+$sprites-circle-search-offset-x: 0px;
+$sprites-circle-search-offset-y: -109px;
+$sprites-circle-search-width: 105px;
+$sprites-circle-search-height: 104px;
+$sprites-circle-search-total-width: 213px;
+$sprites-circle-search-total-height: 213px;
+$sprites-circle-search-image: '../images/sprites_circle.png';
+$sprites-circle-search: (0px, 109px, 0px, -109px, 105px, 104px, 213px, 213px, '../images/sprites_circle.png', 'sprites-circle-search', );
+$sprites-circle-search-02-name: 'sprites-circle-search_02';
+$sprites-circle-search-02-x: 109px;
+$sprites-circle-search-02-y: 109px;
+$sprites-circle-search-02-offset-x: -109px;
+$sprites-circle-search-02-offset-y: -109px;
+$sprites-circle-search-02-width: 30px;
+$sprites-circle-search-02-height: 30px;
+$sprites-circle-search-02-total-width: 213px;
+$sprites-circle-search-02-total-height: 213px;
+$sprites-circle-search-02-image: '../images/sprites_circle.png';
+$sprites-circle-search-02: (109px, 109px, -109px, -109px, 30px, 30px, 213px, 213px, '../images/sprites_circle.png', 'sprites-circle-search_02', );
+$sprites-circle-cart-2x-name: 'sprites-circle-cart@2x';
+$sprites-circle-cart-2x-x: 0px;
+$sprites-circle-cart-2x-y: 0px;
+$sprites-circle-cart-2x-offset-x: 0px;
+$sprites-circle-cart-2x-offset-y: 0px;
+$sprites-circle-cart-2x-width: 210px;
+$sprites-circle-cart-2x-height: 210px;
+$sprites-circle-cart-2x-total-width: 426px;
+$sprites-circle-cart-2x-total-height: 426px;
+$sprites-circle-cart-2x-image: '../images/sprites_circle@2x.png';
+$sprites-circle-cart-2x: (0px, 0px, 0px, 0px, 210px, 210px, 426px, 426px, '../images/sprites_circle@2x.png', 'sprites-circle-cart@2x', );
+$sprites-circle-pc-2x-name: 'sprites-circle-pc@2x';
+$sprites-circle-pc-2x-x: 218px;
+$sprites-circle-pc-2x-y: 0px;
+$sprites-circle-pc-2x-offset-x: -218px;
+$sprites-circle-pc-2x-offset-y: 0px;
+$sprites-circle-pc-2x-width: 208px;
+$sprites-circle-pc-2x-height: 210px;
+$sprites-circle-pc-2x-total-width: 426px;
+$sprites-circle-pc-2x-total-height: 426px;
+$sprites-circle-pc-2x-image: '../images/sprites_circle@2x.png';
+$sprites-circle-pc-2x: (218px, 0px, -218px, 0px, 208px, 210px, 426px, 426px, '../images/sprites_circle@2x.png', 'sprites-circle-pc@2x', );
+$sprites-circle-search-2x-name: 'sprites-circle-search@2x';
+$sprites-circle-search-2x-x: 0px;
+$sprites-circle-search-2x-y: 218px;
+$sprites-circle-search-2x-offset-x: 0px;
+$sprites-circle-search-2x-offset-y: -218px;
+$sprites-circle-search-2x-width: 210px;
+$sprites-circle-search-2x-height: 208px;
+$sprites-circle-search-2x-total-width: 426px;
+$sprites-circle-search-2x-total-height: 426px;
+$sprites-circle-search-2x-image: '../images/sprites_circle@2x.png';
+$sprites-circle-search-2x: (0px, 218px, 0px, -218px, 210px, 208px, 426px, 426px, '../images/sprites_circle@2x.png', 'sprites-circle-search@2x', );
+$sprites-circle-search-02-2x-name: 'sprites-circle-search_02@2x';
+$sprites-circle-search-02-2x-x: 218px;
+$sprites-circle-search-02-2x-y: 218px;
+$sprites-circle-search-02-2x-offset-x: -218px;
+$sprites-circle-search-02-2x-offset-y: -218px;
+$sprites-circle-search-02-2x-width: 60px;
+$sprites-circle-search-02-2x-height: 60px;
+$sprites-circle-search-02-2x-total-width: 426px;
+$sprites-circle-search-02-2x-total-height: 426px;
+$sprites-circle-search-02-2x-image: '../images/sprites_circle@2x.png';
+$sprites-circle-search-02-2x: (218px, 218px, -218px, -218px, 60px, 60px, 426px, 426px, '../images/sprites_circle@2x.png', 'sprites-circle-search_02@2x', );
+$spritesheet-width: 213px;
+$spritesheet-height: 213px;
+$spritesheet-image: '../images/sprites_circle.png';
+$spritesheet-sprites: ($sprites-circle-cart, $sprites-circle-pc, $sprites-circle-search, $sprites-circle-search-02, );
+$spritesheet: (213px, 213px, '../images/sprites_circle.png', $spritesheet-sprites, );
+$retina-spritesheet-width: 426px;
+$retina-spritesheet-height: 426px;
+$retina-spritesheet-image: '../images/sprites_circle@2x.png';
+$retina-spritesheet-sprites: ($sprites-circle-cart-2x, $sprites-circle-pc-2x, $sprites-circle-search-2x, $sprites-circle-search-02-2x, );
+$retina-spritesheet: (426px, 426px, '../images/sprites_circle@2x.png', $retina-spritesheet-sprites, );
+
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+*/
+$sprites-circle-cart-group-name: 'sprites-circle-cart';
+$sprites-circle-cart-group: ('sprites-circle-cart', $sprites-circle-cart, $sprites-circle-cart-2x, );
+$sprites-circle-pc-group-name: 'sprites-circle-pc';
+$sprites-circle-pc-group: ('sprites-circle-pc', $sprites-circle-pc, $sprites-circle-pc-2x, );
+$sprites-circle-search-group-name: 'sprites-circle-search';
+$sprites-circle-search-group: ('sprites-circle-search', $sprites-circle-search, $sprites-circle-search-2x, );
+$sprites-circle-search-02-group-name: 'sprites-circle-search_02';
+$sprites-circle-search-02-group: ('sprites-circle-search_02', $sprites-circle-search-02, $sprites-circle-search-02-2x, );
+$retina-groups: ($sprites-circle-cart-group, $sprites-circle-pc-group, $sprites-circle-search-group, $sprites-circle-search-02-group, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
+
+.icon-home {
+  @include retina-sprite($icon-home-group);
+}
+*/
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
+
+/*
+The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+@include retina-sprites($retina-groups);
+*/
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
+    }
+  }
+}

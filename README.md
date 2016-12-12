@@ -12,7 +12,6 @@ npm >= 3.8
 2. `npm install` or `yarn install`
 3. `npm start` or `yarn start`
 4. 納品ファイル作成  
-   `npm run release` or `yarn run release`
 
 
 ### 機能
