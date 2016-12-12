@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-Thin.eot');
+    src: local('Noto Sans CJK JP Thin'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Thin.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Thin.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Thin.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-Light.eot');
+    src: local('Noto Sans CJK JP Light'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Light.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-DemiLight.eot');
+    src: local('Noto Sans CJK JP DemiLight'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-DemiLight.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-DemiLight.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-DemiLight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-Regular.eot');
+    src: local('Noto Sans CJK JP Regular'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Regular.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-Medium.eot');
+    src: local('Noto Sans CJK JP Medium'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Medium.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-Bold.eot');
+    src: local('Noto Sans CJK JP Bold'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Bold.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/notosanscjkjp/NotoSansCJKjp-Black.eot');
+    src: local('Noto Sans CJK JP Black'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Black.woff') format('woff'),
+    url('../fonts/notosanscjkjp/NotoSansCJKjp-Black.otf') format('opentype');
+}
+
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 100;
+ src: local("YuGothic-Light"),
+ local("Yu Gothic Light");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 200;
+ src: local("YuGothic-Light"),
+ local("Yu Gothic Light");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 300;
+ src: local("YuGothic-Regular"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 400;
+ src: local("YuGothic-Medium"),
+ local("Yu Gothic Medium"),
+ local("YuGothic-Regular");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 500;
+ src: local("YuGothic-Medium"),
+ local("Yu Gothic Medium"),
+ local("YuGothic-Regular");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 600;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 700;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 800;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 900;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}

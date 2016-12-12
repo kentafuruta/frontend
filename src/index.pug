@@ -1,0 +1,31 @@
+doctype html
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="ja"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="ja"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+html(lang='ja')
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1.0")
+        title タイトル
+        <!-- CSS  -->
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+        link(href="main.css", rel="stylesheet" media="screen,projection")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script(src="js/materialize.min.js")
+        body
+            .container.row
+                header.row
+                    h1.col.span_4 Site Title
+                    h2.col.span_8 Site Description
+                    nav.row
+                        div.col
+                            div.menuBtn.arrow
+                                span.line
+                                span.line
+                                span.line
+                main.row
+                    article.col.span_8.clr Insert page content here.
+                    aside.col.span_4.clr Insert sidebar stuff here.
+                footer.row Insert footer stuff here.
+            script(src="js/app.js")
