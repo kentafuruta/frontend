@@ -1,0 +1,200 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$sprite-sprite02-ico-blank-name: 'sprite_sprite02_ico_blank';
+$sprite-sprite02-ico-blank-x: 162px;
+$sprite-sprite02-ico-blank-y: 118px;
+$sprite-sprite02-ico-blank-offset-x: -162px;
+$sprite-sprite02-ico-blank-offset-y: -118px;
+$sprite-sprite02-ico-blank-width: 14px;
+$sprite-sprite02-ico-blank-height: 14px;
+$sprite-sprite02-ico-blank-total-width: 184px;
+$sprite-sprite02-ico-blank-total-height: 184px;
+$sprite-sprite02-ico-blank-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-blank: (162px, 118px, -162px, -118px, 14px, 14px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_blank', );
+$sprite-sprite02-ico-blank-01-name: 'sprite_sprite02_ico_blank_01';
+$sprite-sprite02-ico-blank-01-x: 128px;
+$sprite-sprite02-ico-blank-01-y: 152px;
+$sprite-sprite02-ico-blank-01-offset-x: -128px;
+$sprite-sprite02-ico-blank-01-offset-y: -152px;
+$sprite-sprite02-ico-blank-01-width: 27px;
+$sprite-sprite02-ico-blank-01-height: 27px;
+$sprite-sprite02-ico-blank-01-total-width: 184px;
+$sprite-sprite02-ico-blank-01-total-height: 184px;
+$sprite-sprite02-ico-blank-01-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-blank-01: (128px, 152px, -128px, -152px, 27px, 27px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_blank_01', );
+$sprite-sprite02-ico-column-new-name: 'sprite_sprite02_ico_column_new';
+$sprite-sprite02-ico-column-new-x: 94px;
+$sprite-sprite02-ico-column-new-y: 94px;
+$sprite-sprite02-ico-column-new-offset-x: -94px;
+$sprite-sprite02-ico-column-new-offset-y: -94px;
+$sprite-sprite02-ico-column-new-width: 60px;
+$sprite-sprite02-ico-column-new-height: 20px;
+$sprite-sprite02-ico-column-new-total-width: 184px;
+$sprite-sprite02-ico-column-new-total-height: 184px;
+$sprite-sprite02-ico-column-new-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-column-new: (94px, 94px, -94px, -94px, 60px, 20px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_column_new', );
+$sprite-sprite02-ico-dpoint-01-name: 'sprite_sprite02_ico_dpoint_01';
+$sprite-sprite02-ico-dpoint-01-x: 158px;
+$sprite-sprite02-ico-dpoint-01-y: 94px;
+$sprite-sprite02-ico-dpoint-01-offset-x: -158px;
+$sprite-sprite02-ico-dpoint-01-offset-y: -94px;
+$sprite-sprite02-ico-dpoint-01-width: 19px;
+$sprite-sprite02-ico-dpoint-01-height: 18px;
+$sprite-sprite02-ico-dpoint-01-total-width: 184px;
+$sprite-sprite02-ico-dpoint-01-total-height: 184px;
+$sprite-sprite02-ico-dpoint-01-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-dpoint-01: (158px, 94px, -158px, -94px, 19px, 18px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_dpoint_01', );
+$sprite-sprite02-ico-facebook-01-name: 'sprite_sprite02_ico_facebook_01';
+$sprite-sprite02-ico-facebook-01-x: 94px;
+$sprite-sprite02-ico-facebook-01-y: 118px;
+$sprite-sprite02-ico-facebook-01-offset-x: -94px;
+$sprite-sprite02-ico-facebook-01-offset-y: -118px;
+$sprite-sprite02-ico-facebook-01-width: 30px;
+$sprite-sprite02-ico-facebook-01-height: 30px;
+$sprite-sprite02-ico-facebook-01-total-width: 184px;
+$sprite-sprite02-ico-facebook-01-total-height: 184px;
+$sprite-sprite02-ico-facebook-01-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-facebook-01: (94px, 118px, -94px, -118px, 30px, 30px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_facebook_01', );
+$sprite-sprite02-ico-facebook-02-name: 'sprite_sprite02_ico_facebook_02';
+$sprite-sprite02-ico-facebook-02-x: 0px;
+$sprite-sprite02-ico-facebook-02-y: 0px;
+$sprite-sprite02-ico-facebook-02-offset-x: 0px;
+$sprite-sprite02-ico-facebook-02-offset-y: 0px;
+$sprite-sprite02-ico-facebook-02-width: 90px;
+$sprite-sprite02-ico-facebook-02-height: 90px;
+$sprite-sprite02-ico-facebook-02-total-width: 184px;
+$sprite-sprite02-ico-facebook-02-total-height: 184px;
+$sprite-sprite02-ico-facebook-02-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-facebook-02: (0px, 0px, 0px, 0px, 90px, 90px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_facebook_02', );
+$sprite-sprite02-ico-line-01-name: 'sprite_sprite02_ico_line_01';
+$sprite-sprite02-ico-line-01-x: 128px;
+$sprite-sprite02-ico-line-01-y: 118px;
+$sprite-sprite02-ico-line-01-offset-x: -128px;
+$sprite-sprite02-ico-line-01-offset-y: -118px;
+$sprite-sprite02-ico-line-01-width: 30px;
+$sprite-sprite02-ico-line-01-height: 30px;
+$sprite-sprite02-ico-line-01-total-width: 184px;
+$sprite-sprite02-ico-line-01-total-height: 184px;
+$sprite-sprite02-ico-line-01-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-line-01: (128px, 118px, -128px, -118px, 30px, 30px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_line_01', );
+$sprite-sprite02-ico-line-02-name: 'sprite_sprite02_ico_line_02';
+$sprite-sprite02-ico-line-02-x: 94px;
+$sprite-sprite02-ico-line-02-y: 0px;
+$sprite-sprite02-ico-line-02-offset-x: -94px;
+$sprite-sprite02-ico-line-02-offset-y: 0px;
+$sprite-sprite02-ico-line-02-width: 90px;
+$sprite-sprite02-ico-line-02-height: 90px;
+$sprite-sprite02-ico-line-02-total-width: 184px;
+$sprite-sprite02-ico-line-02-total-height: 184px;
+$sprite-sprite02-ico-line-02-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-line-02: (94px, 0px, -94px, 0px, 90px, 90px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_line_02', );
+$sprite-sprite02-ico-twitter-01-name: 'sprite_sprite02_ico_twitter_01';
+$sprite-sprite02-ico-twitter-01-x: 94px;
+$sprite-sprite02-ico-twitter-01-y: 152px;
+$sprite-sprite02-ico-twitter-01-offset-x: -94px;
+$sprite-sprite02-ico-twitter-01-offset-y: -152px;
+$sprite-sprite02-ico-twitter-01-width: 30px;
+$sprite-sprite02-ico-twitter-01-height: 30px;
+$sprite-sprite02-ico-twitter-01-total-width: 184px;
+$sprite-sprite02-ico-twitter-01-total-height: 184px;
+$sprite-sprite02-ico-twitter-01-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-twitter-01: (94px, 152px, -94px, -152px, 30px, 30px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_twitter_01', );
+$sprite-sprite02-ico-twitter-02-name: 'sprite_sprite02_ico_twitter_02';
+$sprite-sprite02-ico-twitter-02-x: 0px;
+$sprite-sprite02-ico-twitter-02-y: 94px;
+$sprite-sprite02-ico-twitter-02-offset-x: 0px;
+$sprite-sprite02-ico-twitter-02-offset-y: -94px;
+$sprite-sprite02-ico-twitter-02-width: 90px;
+$sprite-sprite02-ico-twitter-02-height: 90px;
+$sprite-sprite02-ico-twitter-02-total-width: 184px;
+$sprite-sprite02-ico-twitter-02-total-height: 184px;
+$sprite-sprite02-ico-twitter-02-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-ico-twitter-02: (0px, 94px, 0px, -94px, 90px, 90px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_ico_twitter_02', );
+$sprite-sprite02-icon-check-01-name: 'sprite_sprite02_icon_check_01';
+$sprite-sprite02-icon-check-01-x: 159px;
+$sprite-sprite02-icon-check-01-y: 152px;
+$sprite-sprite02-icon-check-01-offset-x: -159px;
+$sprite-sprite02-icon-check-01-offset-y: -152px;
+$sprite-sprite02-icon-check-01-width: 12px;
+$sprite-sprite02-icon-check-01-height: 14px;
+$sprite-sprite02-icon-check-01-total-width: 184px;
+$sprite-sprite02-icon-check-01-total-height: 184px;
+$sprite-sprite02-icon-check-01-image: '../sprite/sprite_sprite02.png';
+$sprite-sprite02-icon-check-01: (159px, 152px, -159px, -152px, 12px, 14px, 184px, 184px, '../sprite/sprite_sprite02.png', 'sprite_sprite02_icon_check_01', );
+$spritesheet-width: 184px;
+$spritesheet-height: 184px;
+$spritesheet-image: '../sprite/sprite_sprite02.png';
+$spritesheet-sprites: ($sprite-sprite02-ico-blank, $sprite-sprite02-ico-blank-01, $sprite-sprite02-ico-column-new, $sprite-sprite02-ico-dpoint-01, $sprite-sprite02-ico-facebook-01, $sprite-sprite02-ico-facebook-02, $sprite-sprite02-ico-line-01, $sprite-sprite02-ico-line-02, $sprite-sprite02-ico-twitter-01, $sprite-sprite02-ico-twitter-02, $sprite-sprite02-icon-check-01, );
+$spritesheet: (184px, 184px, '../sprite/sprite_sprite02.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

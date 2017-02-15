@@ -1,19 +1,26 @@
-var gulp = require('gulp'),
-    del = require('del'),
-    fs = require('fs'),
-    plumber = require('gulp-plumber'),
-    notify = require('gulp-notify'),
-    rename = require('gulp-rename'),
-    ejs = require('gulp-ejs'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    postcss = require('gulp-postcss'),
-    cssnext = require('postcss-cssnext'),
+var gulp        = require('gulp'),
+    del         = require('del'),
+    fs          = require('fs'),
+    path        = require('path'),
+    plumber     = require('gulp-plumber'),
+    notify      = require('gulp-notify'),
+    rename      = require('gulp-rename'),
+    ejs         = require('gulp-ejs'),
+    sass        = require('gulp-sass'),
+    sourcemaps  = require('gulp-sourcemaps'),
+    postcss     = require('gulp-postcss'),
+    cssnext     = require('postcss-cssnext'),
     cssMqpacker = require('css-mqpacker'), // media queryをまとめる
-    imageMin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
+    imageMin    = require('gulp-imagemin'),
+    pngquant    = require('imagemin-pngquant'),
     spritesmith = require('gulp.spritesmith'),
-    browserSync = require('browser-sync').create(),
+    browserSync = require('browser-sync').create();
+
+var getFolders = function(dir_path) {
+  return fs.readdirSync(dir_path).filter(function(file) {
+    return fs.statSync(path.join(dir_path, file)).isDirectory();
+  });
+};
 
 /*
 * 開発用のディレクトリのパス
@@ -27,7 +34,7 @@ var develop = {
   'vendor'   : devDir + '/assets/vendor/**/*.!(scss|js)',
   'image'    : [devDir + '/**/*.{png,jpg,gif,svg}', '!' + devDir + '/assets/icon/*.svg', '!' + devDir + '/assets/font/*.svg', '!' + devDir + '/assets/sprite/**/*.png'],
   'iconfont' : devDir + '/assets/icon/*.svg',
-  'sprite'   : devDir + '/assets/sprite/**/*.png'
+  'sprite'   : devDir + '/assets/sprite/'
 };
 
 /*
@@ -71,7 +78,7 @@ gulp.task('ejs', function() {
 /********************************************
  * sassタスク
  *********************************************/
-gulp.task('sass', ['sprite'], function() {
+gulp.task('sass', function() {
   var options = {
       outputStyle: 'expanded',
       precision: 10,
@@ -152,22 +159,27 @@ gulp.task('imagemin', function() {
  * spriteタスク
  * assets/sprite/にpngファイルを入れる。
  *********************************************/
-gulp.task('sprite', function () {
-  var spriteData = gulp.src(develop.sprite)
-      .pipe(spritesmith({
-        //retinaSrcFilter: ['./src/sprite/*@2x.png'],
-        imgName: 'sprite.png',
-        //retinaImgName: 'sprite@2x.png',
-        cssName: '_sprite.scss',
-        imgPath: 'sprite/sprite.png',
-        //cssFormat: 'scss',
-        padding: 10,
-        cssVarMap: function (sprite) {
-            sprite.name = 'sprite-' + sprite.name;
-        },
-      }));
-  spriteData.img.pipe(gulp.dest(release.sprite));
-  spriteData.css.pipe(gulp.dest(develop.css));
+gulp.task('sprite', function() {
+  var folders = getFolders(develop.sprite);
+  folders.forEach(function(folder){
+    var spriteName = 'sprite_' + folder;
+    var spriteData = gulp.src(develop.sprite + folder + '/*.png')
+                       .pipe(spritesmith({
+                         imgName   : spriteName + '.png',
+                         imgPath   : '/assets/' + spriteName + '.png',
+                         cssName   : '_' + spriteName + '.scss',
+                         cssVarMap : function (sprite) {
+                             sprite.name = spriteName + '_' + sprite.name;
+                         },
+                        // retinaディスプレイ対応の時はコメントアウト外して、 @2x.pngのファイル名の画像を作る。
+                        //  retinaSrcFilter : develop.sprite + folder +  '/*@2x.png',
+                        //  retinaImgName   : spriteName + '@2x.png',
+                        //  retinaImgPath   : '/assets/img/' + spriteName + '@2x.png',
+                         padding         : 4
+                       }));
+    spriteData.img.pipe(gulp.dest(develop.root + 'assets/img/'));
+    return spriteData.css.pipe(gulp.dest(develop.css));
+  })
 });
 
 /********************************************
