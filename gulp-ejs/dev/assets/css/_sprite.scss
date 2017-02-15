@@ -1,0 +1,200 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$sprite-ico-blank-name: 'sprite-ico_blank';
+$sprite-ico-blank-x: 200px;
+$sprite-ico-blank-y: 105px;
+$sprite-ico-blank-offset-x: -200px;
+$sprite-ico-blank-offset-y: -105px;
+$sprite-ico-blank-width: 14px;
+$sprite-ico-blank-height: 14px;
+$sprite-ico-blank-total-width: 230px;
+$sprite-ico-blank-total-height: 190px;
+$sprite-ico-blank-image: 'sprite/sprite.png';
+$sprite-ico-blank: (200px, 105px, -200px, -105px, 14px, 14px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_blank', );
+$sprite-ico-blank-01-name: 'sprite-ico_blank_01';
+$sprite-ico-blank-01-x: 200px;
+$sprite-ico-blank-01-y: 40px;
+$sprite-ico-blank-01-offset-x: -200px;
+$sprite-ico-blank-01-offset-y: -40px;
+$sprite-ico-blank-01-width: 27px;
+$sprite-ico-blank-01-height: 27px;
+$sprite-ico-blank-01-total-width: 230px;
+$sprite-ico-blank-01-total-height: 190px;
+$sprite-ico-blank-01-image: 'sprite/sprite.png';
+$sprite-ico-blank-01: (200px, 40px, -200px, -40px, 27px, 27px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_blank_01', );
+$sprite-ico-column-new-name: 'sprite-ico_column_new';
+$sprite-ico-column-new-x: 100px;
+$sprite-ico-column-new-y: 100px;
+$sprite-ico-column-new-offset-x: -100px;
+$sprite-ico-column-new-offset-y: -100px;
+$sprite-ico-column-new-width: 60px;
+$sprite-ico-column-new-height: 20px;
+$sprite-ico-column-new-total-width: 230px;
+$sprite-ico-column-new-total-height: 190px;
+$sprite-ico-column-new-image: 'sprite/sprite.png';
+$sprite-ico-column-new: (100px, 100px, -100px, -100px, 60px, 20px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_column_new', );
+$sprite-ico-dpoint-01-name: 'sprite-ico_dpoint_01';
+$sprite-ico-dpoint-01-x: 200px;
+$sprite-ico-dpoint-01-y: 77px;
+$sprite-ico-dpoint-01-offset-x: -200px;
+$sprite-ico-dpoint-01-offset-y: -77px;
+$sprite-ico-dpoint-01-width: 19px;
+$sprite-ico-dpoint-01-height: 18px;
+$sprite-ico-dpoint-01-total-width: 230px;
+$sprite-ico-dpoint-01-total-height: 190px;
+$sprite-ico-dpoint-01-image: 'sprite/sprite.png';
+$sprite-ico-dpoint-01: (200px, 77px, -200px, -77px, 19px, 18px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_dpoint_01', );
+$sprite-ico-facebook-01-name: 'sprite-ico_facebook_01';
+$sprite-ico-facebook-01-x: 100px;
+$sprite-ico-facebook-01-y: 130px;
+$sprite-ico-facebook-01-offset-x: -100px;
+$sprite-ico-facebook-01-offset-y: -130px;
+$sprite-ico-facebook-01-width: 30px;
+$sprite-ico-facebook-01-height: 30px;
+$sprite-ico-facebook-01-total-width: 230px;
+$sprite-ico-facebook-01-total-height: 190px;
+$sprite-ico-facebook-01-image: 'sprite/sprite.png';
+$sprite-ico-facebook-01: (100px, 130px, -100px, -130px, 30px, 30px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_facebook_01', );
+$sprite-ico-facebook-02-name: 'sprite-ico_facebook_02';
+$sprite-ico-facebook-02-x: 0px;
+$sprite-ico-facebook-02-y: 0px;
+$sprite-ico-facebook-02-offset-x: 0px;
+$sprite-ico-facebook-02-offset-y: 0px;
+$sprite-ico-facebook-02-width: 90px;
+$sprite-ico-facebook-02-height: 90px;
+$sprite-ico-facebook-02-total-width: 230px;
+$sprite-ico-facebook-02-total-height: 190px;
+$sprite-ico-facebook-02-image: 'sprite/sprite.png';
+$sprite-ico-facebook-02: (0px, 0px, 0px, 0px, 90px, 90px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_facebook_02', );
+$sprite-ico-line-01-name: 'sprite-ico_line_01';
+$sprite-ico-line-01-x: 140px;
+$sprite-ico-line-01-y: 130px;
+$sprite-ico-line-01-offset-x: -140px;
+$sprite-ico-line-01-offset-y: -130px;
+$sprite-ico-line-01-width: 30px;
+$sprite-ico-line-01-height: 30px;
+$sprite-ico-line-01-total-width: 230px;
+$sprite-ico-line-01-total-height: 190px;
+$sprite-ico-line-01-image: 'sprite/sprite.png';
+$sprite-ico-line-01: (140px, 130px, -140px, -130px, 30px, 30px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_line_01', );
+$sprite-ico-line-02-name: 'sprite-ico_line_02';
+$sprite-ico-line-02-x: 100px;
+$sprite-ico-line-02-y: 0px;
+$sprite-ico-line-02-offset-x: -100px;
+$sprite-ico-line-02-offset-y: 0px;
+$sprite-ico-line-02-width: 90px;
+$sprite-ico-line-02-height: 90px;
+$sprite-ico-line-02-total-width: 230px;
+$sprite-ico-line-02-total-height: 190px;
+$sprite-ico-line-02-image: 'sprite/sprite.png';
+$sprite-ico-line-02: (100px, 0px, -100px, 0px, 90px, 90px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_line_02', );
+$sprite-ico-twitter-01-name: 'sprite-ico_twitter_01';
+$sprite-ico-twitter-01-x: 200px;
+$sprite-ico-twitter-01-y: 0px;
+$sprite-ico-twitter-01-offset-x: -200px;
+$sprite-ico-twitter-01-offset-y: 0px;
+$sprite-ico-twitter-01-width: 30px;
+$sprite-ico-twitter-01-height: 30px;
+$sprite-ico-twitter-01-total-width: 230px;
+$sprite-ico-twitter-01-total-height: 190px;
+$sprite-ico-twitter-01-image: 'sprite/sprite.png';
+$sprite-ico-twitter-01: (200px, 0px, -200px, 0px, 30px, 30px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_twitter_01', );
+$sprite-ico-twitter-02-name: 'sprite-ico_twitter_02';
+$sprite-ico-twitter-02-x: 0px;
+$sprite-ico-twitter-02-y: 100px;
+$sprite-ico-twitter-02-offset-x: 0px;
+$sprite-ico-twitter-02-offset-y: -100px;
+$sprite-ico-twitter-02-width: 90px;
+$sprite-ico-twitter-02-height: 90px;
+$sprite-ico-twitter-02-total-width: 230px;
+$sprite-ico-twitter-02-total-height: 190px;
+$sprite-ico-twitter-02-image: 'sprite/sprite.png';
+$sprite-ico-twitter-02: (0px, 100px, 0px, -100px, 90px, 90px, 230px, 190px, 'sprite/sprite.png', 'sprite-ico_twitter_02', );
+$sprite-icon-check-01-name: 'sprite-icon_check_01';
+$sprite-icon-check-01-x: 200px;
+$sprite-icon-check-01-y: 129px;
+$sprite-icon-check-01-offset-x: -200px;
+$sprite-icon-check-01-offset-y: -129px;
+$sprite-icon-check-01-width: 12px;
+$sprite-icon-check-01-height: 14px;
+$sprite-icon-check-01-total-width: 230px;
+$sprite-icon-check-01-total-height: 190px;
+$sprite-icon-check-01-image: 'sprite/sprite.png';
+$sprite-icon-check-01: (200px, 129px, -200px, -129px, 12px, 14px, 230px, 190px, 'sprite/sprite.png', 'sprite-icon_check_01', );
+$spritesheet-width: 230px;
+$spritesheet-height: 190px;
+$spritesheet-image: 'sprite/sprite.png';
+$spritesheet-sprites: ($sprite-ico-blank, $sprite-ico-blank-01, $sprite-ico-column-new, $sprite-ico-dpoint-01, $sprite-ico-facebook-01, $sprite-ico-facebook-02, $sprite-ico-line-01, $sprite-ico-line-02, $sprite-ico-twitter-01, $sprite-ico-twitter-02, $sprite-icon-check-01, );
+$spritesheet: (230px, 190px, 'sprite/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

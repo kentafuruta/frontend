@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../font/NotoSansCJKjp-Thin.eot');
+    src: local('Noto Sans CJK JP Thin'),
+    url('../font/NotoSansCJKjp-Thin.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-Thin.woff') format('woff'),
+    url('../font/NotoSansCJKjp-Thin.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../font/NotoSansCJKjp-Light.eot');
+    src: local('Noto Sans CJK JP Light'),
+    url('../font/NotoSansCJKjp-Light.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-Light.woff') format('woff'),
+    url('../font/NotoSansCJKjp-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../font/NotoSansCJKjp-DemiLight.eot');
+    src: local('Noto Sans CJK JP DemiLight'),
+    url('../font/NotoSansCJKjp-DemiLight.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-DemiLight.woff') format('woff'),
+    url('../font/NotoSansCJKjp-DemiLight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/NotoSansCJKjp-Regular.eot');
+    src: local('Noto Sans CJK JP Regular'),
+    url('../font/NotoSansCJKjp-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-Regular.woff') format('woff'),
+    url('../font/NotoSansCJKjp-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../font/NotoSansCJKjp-Medium.eot');
+    src: local('Noto Sans CJK JP Medium'),
+    url('../font/NotoSansCJKjp-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-Medium.woff') format('woff'),
+    url('../font/NotoSansCJKjp-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../font/NotoSansCJKjp-Bold.eot');
+    src: local('Noto Sans CJK JP Bold'),
+    url('../font/NotoSansCJKjp-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-Bold.woff') format('woff'),
+    url('../font/NotoSansCJKjp-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKjp';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../font/NotoSansCJKjp-Black.eot');
+    src: local('Noto Sans CJK JP Black'),
+    url('../font/NotoSansCJKjp-Black.eot?#iefix') format('embedded-opentype'),
+    url('../font/NotoSansCJKjp-Black.woff') format('woff'),
+    url('../font/NotoSansCJKjp-Black.otf') format('opentype');
+}
+
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 100;
+ src: local("YuGothic-Light"),
+ local("Yu Gothic Light");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 200;
+ src: local("YuGothic-Light"),
+ local("Yu Gothic Light");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 300;
+ src: local("YuGothic-Regular"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 400;
+ src: local("YuGothic-Medium"),
+ local("Yu Gothic Medium"),
+ local("YuGothic-Regular");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 500;
+ src: local("YuGothic-Medium"),
+ local("Yu Gothic Medium"),
+ local("YuGothic-Regular");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 600;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 700;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 800;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+@font-face {
+ font-family: "MyYuGothicM";
+ font-weight: 900;
+ src: local("YuGothic-Bold"),
+ local("Yu Gothic");
+}
+
+.noto {
+  font-family: "NotoSansCJKjp", sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}

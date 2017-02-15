@@ -1,0 +1,13 @@
+@mixin hover-text {
+  text-decoration: underline;
+  color: $red01;
+  cursor: pointer;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

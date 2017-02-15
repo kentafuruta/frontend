@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <% include('../partials/_head', {site, page}) %>
+  </head>
+  <body class="<%= page.class %>">
+    <header id="global-header">
+      <% include('../partials/_header', {site, page}) %>
+    </header>
+    <main id="main">
+      <%- include('../' + page.path + '/' + page.id, {site, page}) %>
+    </main>
+    <footer id="global-footer">
+      <% include('../partials/_footer', {site, page}) %>
+    </footer>
+    <div class="toTop">
+      <i class="icon icon-bullet-up"></i>
+    </div>
+    <% include('../partials/_ga', {site, page}) %>
+    <% include('../partials/_scripts', {site, page}) %>
+  </body>
+</html>
