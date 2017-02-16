@@ -15,6 +15,9 @@ var gulp        = require('gulp'),
     imageMin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
     spritesmith = require('gulp.spritesmith'),
+    iconfont    = require('gulp-iconfont'),
+    consolidate = require('gulp-consolidate'),
+    lodash      = require('lodash'),
     browserSync = require('browser-sync').create();
 
 var getFolders = function(dir_path) {
@@ -33,8 +36,8 @@ var develop = {
   'sass'     : [devDir + '/**/!(_)*.scss', '!' + devDir + '/vendor/**/*.scss'],
   'js'       : [devDir + '/**/*.js', devDir + '/assets/js/bundle/**/*.js'],
   'vendor'   : devDir + '/vendor/**/*.!(scss|js)',
-  'image'    : [devDir + '/**/*.{png,jpg,gif,svg}', '!' + devDir + '/assets/icon/*.svg', '!' + devDir + '/assets/font/*.svg', '!' + devDir + '/assets/sprite/**/*.png'],
-  'iconfont' : devDir + '/assets/icon/*.svg',
+  'image'    : [devDir + '/**/*.{png,jpg,gif,svg}', '!' + devDir + '/assets/iconfont/*.svg', '!' + devDir + '/assets/font/*.svg', '!' + devDir + '/assets/sprite/**/*.png'],
+  'iconfont' : devDir + '/assets/iconfont/*.svg',
   'sprite'   : devDir + '/assets/sprite/'
 };
 
@@ -45,6 +48,7 @@ var releaseDir = 'release';
 var release = {
   'root'     : releaseDir + '/',
   'sprite'   : releaseDir + '/assets/sprite/',
+  'iconfont' : releaseDir + '/assets/iconfont/',
   'bundleJs' : releaseDir + '/assets/js/bundle/',
 };
 /********************************************
@@ -170,7 +174,7 @@ gulp.task('sprite', function() {
                          imgPath   : 'assets/img/' + spriteName + '.png',
                          cssName   : '_' + spriteName + '.scss',
                          cssVarMap : function (sprite) {
-                             sprite.name = spriteName + '_' + sprite.name;
+                             sprite.name = spriteName + '_' + sprite.name; // sprite-(個別パーツ名)で変数を使うための設定
                          },
                          cssSpritesheetName: spriteName,
                          cssOpts: {
@@ -192,9 +196,32 @@ gulp.task('sprite', function() {
 /********************************************
  * fontタスク
  *********************************************/
-gulp.task('font', function() {
-  return gulp.src('src/font/*')
-  .pipe(gulp.dest('dist/font/'));
+gulp.task('iconfont', function() {
+    var fontName = 'icon';
+
+    return gulp.src(develop.iconfont, {base: develop.root})
+        .pipe(iconfont({fontName: fontName}))
+            .on('codepoints', function(codepoints) {
+                var options = {
+                    className : fontName,
+                    fontName  : fontName,
+                    fontPath  : './assets/iconfont/',
+                    glyphs    : codepoints
+                };
+
+                // CSS
+                gulp.src(develop.root + 'assets/iconfont/template.css')
+                    .pipe(consolidate('lodash', options))
+                    .pipe(rename({basename: fontName}))
+                    .pipe(gulp.dest('documents/iconfont/'));
+
+                // フォント一覧 HTML
+                gulp.src(develop.root + 'assets/iconfont/template.html')
+                    .pipe(consolidate('lodash', options))
+                    .pipe(rename({basename: 'icon-sample'}))
+                    .pipe(gulp.dest('documents/iconfont/'));
+            })
+        .pipe(gulp.dest(release.root));
 });
 
 /********************************************
