@@ -2,6 +2,7 @@ var gulp        = require('gulp'),
     del         = require('del'),
     fs          = require('fs'),
     path        = require('path'),
+    mergeStream = require('merge-stream');
     plumber     = require('gulp-plumber'),
     notify      = require('gulp-notify'),
     rename      = require('gulp-rename'),
@@ -29,9 +30,9 @@ var devDir = 'dev';
 var develop = {
   'root'     : devDir + '/',
   'css'      : devDir + '/assets/css/',
-  'sass'     : [devDir + '/**/!(_)*.scss', '!' + devDir + '/assets/vendor/**/*.scss'],
+  'sass'     : [devDir + '/**/!(_)*.scss', '!' + devDir + '/vendor/**/*.scss'],
   'js'       : [devDir + '/**/*.js', devDir + '/assets/js/bundle/**/*.js'],
-  'vendor'   : devDir + '/assets/vendor/**/*.!(scss|js)',
+  'vendor'   : devDir + '/vendor/**/*.!(scss|js)',
   'image'    : [devDir + '/**/*.{png,jpg,gif,svg}', '!' + devDir + '/assets/icon/*.svg', '!' + devDir + '/assets/font/*.svg', '!' + devDir + '/assets/sprite/**/*.png'],
   'iconfont' : devDir + '/assets/icon/*.svg',
   'sprite'   : devDir + '/assets/sprite/'
@@ -162,23 +163,29 @@ gulp.task('imagemin', function() {
 gulp.task('sprite', function() {
   var folders = getFolders(develop.sprite);
   folders.forEach(function(folder){
-    var spriteName = 'sprite_' + folder;
+    var spriteName = folder;
     var spriteData = gulp.src(develop.sprite + folder + '/*.png')
                        .pipe(spritesmith({
                          imgName   : spriteName + '.png',
-                         imgPath   : '/assets/' + spriteName + '.png',
+                         imgPath   : 'assets/img/' + spriteName + '.png',
                          cssName   : '_' + spriteName + '.scss',
                          cssVarMap : function (sprite) {
                              sprite.name = spriteName + '_' + sprite.name;
                          },
-                        // retinaディスプレイ対応の時はコメントアウト外して、 @2x.pngのファイル名の画像を作る。
-                        //  retinaSrcFilter : develop.sprite + folder +  '/*@2x.png',
-                        //  retinaImgName   : spriteName + '@2x.png',
-                        //  retinaImgPath   : '/assets/img/' + spriteName + '@2x.png',
-                         padding         : 4
+                         cssSpritesheetName: spriteName,
+                         cssOpts: {
+                           functions: false
+                         },
+                         padding         : 4,
+                         // retinaディスプレイ対応の時はコメントアウト外して、 @2x.pngのファイル名の画像を作る。
+                         //  retinaSrcFilter : develop.sprite + folder +  '/*@2x.png',
+                         //  retinaImgName   : spriteName + '@2x.png',
+                         //  retinaImgPath   : '/assets/img/' + spriteName + '@2x.png',
                        }));
-    spriteData.img.pipe(gulp.dest(develop.root + 'assets/img/'));
-    return spriteData.css.pipe(gulp.dest(develop.css));
+    return mergeStream(
+      spriteData.img.pipe(gulp.dest(develop.root + 'assets/img/')),
+      spriteData.css.pipe(gulp.dest(develop.root + 'sass/sprite/'))
+    );
   })
 });
 

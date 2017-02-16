@@ -1,42 +1,34 @@
+@import "sass/variable";
+@import "sass/module";
 @charset "UTF-8";
-@import "assets/css/mixin";
-/****************************************
-reset
-****************************************/
-@import "assets/css/reset";
 
 /****************************************
 font
 ****************************************/
-@import "assets/css/font";
+@import "sass/fontfase";
 
 /****************************************
-config
+reset
 ****************************************/
-@import "assets/css/config";
+@import "sass/reset";
 
 /****************************************
-layout
+base
 ****************************************/
-@import "assets/css/layout";
+@import "sass/base";
 
 /****************************************
-header
+partials
 ****************************************/
-@import "assets/css/header";
+@import "sass/partials";
 
 /****************************************
-icon
+sprite
 ****************************************/
-@import "assets/css/icon";
-
-/****************************************
-module
-****************************************/
-@import "assets/css/module";
+@import "sass/sprite/sprite";
 
 /****************************************
 vendor
 ****************************************/
-@import "assets/vendor/slick/slick";
-@import "assets/vendor/slick/slick-theme";
+@import "vendor/slick/slick";
+@import "vendor/slick/slick-theme";

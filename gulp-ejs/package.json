@@ -4,11 +4,11 @@
   "description": "html5 gulp",
   "main": "index.js",
   "scripts": {
-    "clean"  : "gulp clean",
-    "ejs"    : "gulp ejs",
-    "sass"   : "gulp sass",
-    "sprite" : "gulp sprite",
-    "vendor" : "gulp vendor"
+    "clean": "gulp clean",
+    "ejs": "gulp ejs",
+    "sass": "gulp sass",
+    "sprite": "gulp sprite",
+    "vendor": "gulp vendor"
   },
   "keywords": [
     "html5",
@@ -32,6 +32,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp.spritesmith": "^6.2.1",
     "imagemin-pngquant": "^5.0.0",
+    "merge-stream": "^1.0.1",
     "postcss-cssnext": "^2.8.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.4"
