@@ -22,7 +22,7 @@
     "css-mqpacker": "^5.0.1",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-ejs": "*",
+    "gulp-ejs": "^3.0.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
