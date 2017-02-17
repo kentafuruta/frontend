@@ -17,6 +17,7 @@ var gulp        = require('gulp'),
     spritesmith = require('gulp.spritesmith'),
     iconfont    = require('gulp-iconfont'),
     consolidate = require('gulp-consolidate'),
+    size        = require('gulp-size'),
     lodash      = require('lodash'),
     browserSync = require('browser-sync').create();
 
