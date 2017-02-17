@@ -20,53 +20,30 @@ var gulp        = require('gulp'),
     lodash      = require('lodash'),
     browserSync = require('browser-sync').create();
 
+// dir_path内のフォルダを取得
 var getFolders = function(dir_path) {
   return fs.readdirSync(dir_path).filter(function(file) {
     return fs.statSync(path.join(dir_path, file)).isDirectory();
   });
 };
+// site設定JSON取得
+var jsonData = JSON.parse(fs.readFileSync('setting.json', 'utf8')),
+    site     = jsonData.site;
 
-/*
-* 開発用のディレクトリのパス
-*/
-var devDir = 'dev';
-var develop = {
-  'root'     : devDir + '/',
-  'css'      : devDir + '/assets/css/',
-  'sass'     : [devDir + '/**/!(_)*.scss', '!' + devDir + '/vendor/**/*.scss'],
-  'js'       : [devDir + '/**/*.js', devDir + '/assets/js/bundle/**/*.js'],
-  'vendor'   : devDir + '/vendor/**/*.!(scss|js)',
-  'image'    : [devDir + '/**/*.{png,jpg,gif,svg}', '!' + devDir + '/assets/iconfont/*.svg', '!' + devDir + '/assets/font/*.svg', '!' + devDir + '/assets/sprite/**/*.png'],
-  'iconfont' : devDir + '/assets/iconfont/*.svg',
-  'sprite'   : devDir + '/assets/sprite/'
-};
 
-/*
-* リリース用のディレクトリのパス
-*/
-var releaseDir = 'release';
-var release = {
-  'root'     : releaseDir + '/',
-  'sprite'   : releaseDir + '/assets/sprite/',
-  'iconfont' : releaseDir + '/assets/iconfont/',
-  'bundleJs' : releaseDir + '/assets/js/bundle/',
-};
 /********************************************
  * ejsタスク
  *********************************************/
 gulp.task('ejs', function() {
-  var jsonFile = develop.root + 'setting.json',
-      json = JSON.parse(fs.readFileSync(jsonFile, 'utf8')),
-      site = json.site,
-      pages = json.pages;
+  var pages = jsonData.pages;
 
   for (var i = 0; i < pages.length; i++) {
     var page = pages[i];
-    var destDir = release.root;
+    var destDir = site.release;
     if(page.path !== '') {
       destDir += page.path;
     }
-    gulp.src(develop.root + 'layout/_' + page.layout + '.ejs')
+    gulp.src(site.develop + "_layout/" + page.layout + '.ejs')
       .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
       .pipe(ejs({
        site: site,
@@ -110,7 +87,7 @@ gulp.task('sass', function() {
     }),
     cssMqpacker
   ];
-  return gulp.src(develop.sass, {base: develop.root})
+  return gulp.src(site.develop + '/**/!(_)*.scss', {base: site.develop})
         .pipe(sourcemaps.init())
         .pipe(sass(options).on('error', sass.logError))
         .on('error', function(err) {
@@ -118,7 +95,7 @@ gulp.task('sass', function() {
         })
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest(release.root))
+        .pipe(gulp.dest(site.release))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -126,25 +103,16 @@ gulp.task('sass', function() {
  * jsタスク
  *********************************************/
 gulp.task('js', function() {
- return gulp.src(develop.js, {base: develop.root})
- .pipe(gulp.dest(release.root))
+ return gulp.src(site.develop + '**/*.js', {base: site.develop})
+ .pipe(gulp.dest(site.release))
  .pipe(browserSync.reload({stream: true}));
-});
- /********************************************
-  * vendorタスク
-  * プラグイン、ライブラリなどはここに入れる。
-  *********************************************/
-gulp.task('vendor', function() {
-  return gulp.src(develop.vendor, {base: develop.root})
-  .pipe(gulp.dest(release.root))
-  .pipe(browserSync.reload({stream: true}));
 });
 
 /********************************************
  * 画像圧縮タスク
  *********************************************/
 gulp.task('imagemin', function() {
-  return gulp.src(develop.image, {base: develop.root})
+  return gulp.src([site.develop + '**/*.{png,jpg,gif,svg}', '!' + site.develop + 'assets/iconfont/*.svg', '!' + site.develop + 'assets/font/*.svg', '!' + site.develop + 'assets/sprite/**/*.png'], {base: site.develop})
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(imageMin({
           optimizationLevel: 7, // PNGファイルの圧縮率（7が最高）を指定します
@@ -155,7 +123,7 @@ gulp.task('imagemin', function() {
             speed: 1
           })]
         }))
-        .pipe(gulp.dest(release.root))
+        .pipe(gulp.dest(site.release))
         .pipe(size({title: 'images'}))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -165,16 +133,17 @@ gulp.task('imagemin', function() {
  * assets/sprite/にpngファイルを入れる。
  *********************************************/
 gulp.task('sprite', function() {
-  var folders = getFolders(develop.sprite);
+  var spritsRoot = site.develop + 'assets/sprite/';
+  var folders = getFolders(spritsRoot);
   folders.forEach(function(folder){
     var spriteName = folder;
-    var spriteData = gulp.src(develop.sprite + folder + '/*.png')
+    var spriteData = gulp.src(spritsRoot + folder + '/*.png')
                        .pipe(spritesmith({
                          imgName   : spriteName + '.png',
                          imgPath   : 'assets/img/' + spriteName + '.png',
                          cssName   : '_' + spriteName + '.scss',
                          cssVarMap : function (sprite) {
-                             sprite.name = spriteName + '_' + sprite.name; // sprite-(個別パーツ名)で変数を使うための設定
+                             sprite.name = spriteName + '-' + sprite.name; // foldr-(個別パーツ名)で変数を使うための設定
                          },
                          cssSpritesheetName: spriteName,
                          cssOpts: {
@@ -187,42 +156,45 @@ gulp.task('sprite', function() {
                          //  retinaImgPath   : '/assets/img/' + spriteName + '@2x.png',
                        }));
     return mergeStream(
-      spriteData.img.pipe(gulp.dest(develop.root + 'assets/img/')),
-      spriteData.css.pipe(gulp.dest(develop.root + 'sass/sprite/'))
+      spriteData.img.pipe(gulp.dest(site.develop + 'assets/img/')),
+      spriteData.css.pipe(gulp.dest(site.develop + '_sass/sprite/'))
     );
   })
 });
 
 /********************************************
- * fontタスク
+ * iconfontタスク
+ 　まだ使えない。
  *********************************************/
+/*
 gulp.task('iconfont', function() {
     var fontName = 'icon';
 
-    return gulp.src(develop.iconfont, {base: develop.root})
+    return gulp.src(site.develop + 'assets/iconfont/*.svg', {base: site.develop})
         .pipe(iconfont({fontName: fontName}))
             .on('codepoints', function(codepoints) {
                 var options = {
                     className : fontName,
                     fontName  : fontName,
-                    fontPath  : './assets/iconfont/',
+                    fontPath  : 'assets/iconfont/',
                     glyphs    : codepoints
                 };
 
                 // CSS
-                gulp.src(develop.root + 'assets/iconfont/template.css')
+                gulp.src(site.develop + 'assets/iconfont/template.css')
                     .pipe(consolidate('lodash', options))
                     .pipe(rename({basename: fontName}))
                     .pipe(gulp.dest('documents/iconfont/'));
 
                 // フォント一覧 HTML
-                gulp.src(develop.root + 'assets/iconfont/template.html')
+                gulp.src(site.develop + 'assets/iconfont/template.html')
                     .pipe(consolidate('lodash', options))
                     .pipe(rename({basename: 'icon-sample'}))
                     .pipe(gulp.dest('documents/iconfont/'));
             })
-        .pipe(gulp.dest(release.root));
+        .pipe(gulp.dest(site.release);
 });
+*/
 
 /********************************************
  * copyタスク

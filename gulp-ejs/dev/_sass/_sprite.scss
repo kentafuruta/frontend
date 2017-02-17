@@ -1,5 +1,5 @@
-@import "sprite01";
-@import "sprite02";
+@import "sprite/icon";
+@import "sprite/sprite01";
 // The provided mixins are intended to be used with the array-like variables
 //
 // .icon-home {
@@ -63,5 +63,4 @@
   }
 }
 
-
-@include sprites($sprite01-sprites);
+@include sprites($icon-sprites);

@@ -1,34 +1,32 @@
-@import "sass/variable";
-@import "sass/module";
+@import "_sass/variable";
+@import "_sass/module";
 @charset "UTF-8";
 
 /****************************************
 font
 ****************************************/
-@import "sass/fontfase";
+@import "_sass/fontfase";
 
 /****************************************
 reset
 ****************************************/
-@import "sass/reset";
+@import "_sass/reset";
 
 /****************************************
 base
 ****************************************/
-@import "sass/base";
+@import "_sass/base";
 
 /****************************************
 partials
 ****************************************/
-@import "sass/partials";
+@import "_sass/partials";
 
 /****************************************
 sprite
 ****************************************/
-@import "sass/sprite/sprite";
+@import "_sass/sprite";
 
 /****************************************
 vendor
 ****************************************/
-@import "vendor/slick/slick";
-@import "vendor/slick/slick-theme";
