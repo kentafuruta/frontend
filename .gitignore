@@ -3,5 +3,6 @@
 *.css.map
 node_modules/
 dist/
+release/
 npm-debug.log
 yarn.lock
