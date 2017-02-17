@@ -2,7 +2,18 @@
     "site": {
         "title": "サイト名",
         "description": "デスクリプション",
-        "keyword": "キーワード"
+        "keywords": "キーワード",
+        "author": "",
+        "rootUrl": "http://example.com/",
+        "ogpImage": "http://example.com/images/og-image.jpg",
+        "facebookAdmins": "",
+        "facebookAppId": "",
+        "twitterCard": "summary",
+        "twitterSite": "@",
+        "favicon": "",
+        "appleIcon": "",
+        "appTitle": "",
+        "analyticsId": "UA-XXXXX-X"
     },
     "pages": [
         {
