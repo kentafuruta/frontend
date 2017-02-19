@@ -16,49 +16,5 @@
         "analyticsId"    : "UA-XXXXX-X",
         "develop"        : "dev/",
         "release"        : "release/"
-    },
-    "pages": [
-        {
-            "path": "",
-            "id": "index",
-            "class": "home",
-            "layout": "default",
-            "title": "タイトル"
-        },
-        {
-            "path": "",
-            "id": "about",
-            "class": "about",
-            "layout": "default",
-            "title": "about"
-        },
-        {
-            "path": "",
-            "id": "company",
-            "class": "company",
-            "layout": "default",
-            "title": "company"
-        },
-        {
-            "path": "",
-            "id": "404",
-            "class": "404",
-            "layout": "default",
-            "title": "404"
-        },
-        {
-            "path": "blog",
-            "id": "index",
-            "class": "blog",
-            "layout": "default",
-            "title": "blog"
-        },
-        {
-            "path": "blog",
-            "id": "01",
-            "class": "entry-blog",
-            "layout": "default",
-            "title": "blog01"
-        }
-    ]
+    }
 }

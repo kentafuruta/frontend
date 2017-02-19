@@ -31,31 +31,17 @@ var getFolders = function(dir_path) {
 var jsonData = JSON.parse(fs.readFileSync('setting.json', 'utf8')),
     site     = jsonData.site;
 
-
 /********************************************
  * ejsタスク
  *********************************************/
 gulp.task('ejs', function() {
-  var pages = jsonData.pages;
-
-  for (var i = 0; i < pages.length; i++) {
-    var page = pages[i];
-    var destDir = site.release;
-    if(page.path !== '') {
-      destDir += page.path;
-    }
-    gulp.src(site.develop + "_layout/" + page.layout + '.ejs')
-      .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-      .pipe(ejs({
-       site: site,
-       page: page
-      },
-      {ext: '.html'}
-      ))
-      .pipe(rename(page.id + ".html"))
-      .pipe(gulp.dest(destDir))
-      .pipe(browserSync.reload({stream: true}));
-  }
+  // console.log(__dirname);
+  return gulp.src(site.develop + '**/!(_)*.ejs', {base: site.develop})
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(ejs({site: site}, {'ext': '.html'}))
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest(site.release))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 /********************************************
@@ -84,20 +70,20 @@ gulp.task('sass', function() {
 
           // Other（Androidなどのマイナーなデバイスの指定）
           'Android >= 4.0' // Android4.0以上
-        ],
+        ]
     }),
     cssMqpacker
   ];
   return gulp.src(site.develop + '/**/!(_)*.scss', {base: site.develop})
-        .pipe(sourcemaps.init())
-        .pipe(sass(options).on('error', sass.logError))
-        .on('error', function(err) {
-            console.log(err.message);
-        })
-        .pipe(postcss(processors))
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest(site.release))
-        .pipe(browserSync.reload({stream: true}));
+    .pipe(sourcemaps.init())
+    .pipe(sass(options).on('error', sass.logError))
+    .on('error', function(err) {
+        console.log(err.message);
+    })
+    .pipe(postcss(processors))
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest(site.release))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 /********************************************
@@ -114,19 +100,19 @@ gulp.task('js', function() {
  *********************************************/
 gulp.task('imagemin', function() {
   return gulp.src([site.develop + '**/*.{png,jpg,gif,svg}', '!' + site.develop + 'assets/iconfont/*.svg', '!' + site.develop + 'assets/font/*.svg', '!' + site.develop + 'assets/sprite/**/*.png'], {base: site.develop})
-        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-        .pipe(imageMin({
-          optimizationLevel: 7, // PNGファイルの圧縮率（7が最高）を指定します
-          interlaced: true, // gifをインターレースgifにします
-          progressive: true, // jpgをロスレス圧縮（画質を落とさず、メタデータを削除）
-          use: [pngquant({
-            quality: '65-80',
-            speed: 1
-          })]
-        }))
-        .pipe(gulp.dest(site.release))
-        .pipe(size({title: 'images'}))
-        .pipe(browserSync.reload({stream: true}));
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(imageMin({
+      optimizationLevel: 7, // PNGファイルの圧縮率（7が最高）を指定します
+      interlaced: true, // gifをインターレースgifにします
+      progressive: true, // jpgをロスレス圧縮（画質を落とさず、メタデータを削除）
+      use: [pngquant({
+        quality: '65-80',
+        speed: 1
+      })]
+    }))
+    .pipe(gulp.dest(site.release))
+    .pipe(size({title: 'images'}))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 /********************************************
@@ -139,23 +125,23 @@ gulp.task('sprite', function() {
   folders.forEach(function(folder){
     var spriteName = folder;
     var spriteData = gulp.src(spritsRoot + folder + '/*.png')
-                       .pipe(spritesmith({
-                         imgName   : spriteName + '.png',
-                         imgPath   : 'assets/img/' + spriteName + '.png',
-                         cssName   : '_' + spriteName + '.scss',
-                         cssVarMap : function (sprite) {
-                             sprite.name = spriteName + '-' + sprite.name; // foldr-(個別パーツ名)で変数を使うための設定
-                         },
-                         cssSpritesheetName: spriteName,
-                         cssOpts: {
-                           functions: false
-                         },
-                         padding         : 4,
-                         // retinaディスプレイ対応の時はコメントアウト外して、 @2x.pngのファイル名の画像を作る。
-                         //  retinaSrcFilter : develop.sprite + folder +  '/*@2x.png',
-                         //  retinaImgName   : spriteName + '@2x.png',
-                         //  retinaImgPath   : '/assets/img/' + spriteName + '@2x.png',
-                       }));
+      .pipe(spritesmith({
+        imgName   : spriteName + '.png',
+        imgPath   : 'assets/img/' + spriteName + '.png',
+        cssName   : '_' + spriteName + '.scss',
+        cssVarMap : function (sprite) {
+            sprite.name = spriteName + '-' + sprite.name; // foldr-(個別パーツ名)で変数を使うための設定
+        },
+        cssSpritesheetName: spriteName,
+        cssOpts: {
+          functions: false
+        },
+        padding         : 4,
+        // retinaディスプレイ対応の時はコメントアウト外して、 @2x.pngのファイル名の画像を作る。
+        //  retinaSrcFilter : develop.sprite + folder +  '/*@2x.png',
+        //  retinaImgName   : spriteName + '@2x.png',
+        //  retinaImgPath   : '/assets/img/' + spriteName + '@2x.png',
+    }));
     return mergeStream(
       spriteData.img.pipe(gulp.dest(site.develop + 'assets/img/')),
       spriteData.css.pipe(gulp.dest(site.develop + '_sass/sprite/'))
