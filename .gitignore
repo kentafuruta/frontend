@@ -7,4 +7,3 @@ release/
 npm-debug.log
 yarn.lock
 .vscode/
-release/

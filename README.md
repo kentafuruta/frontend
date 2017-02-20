@@ -41,8 +41,6 @@ dev
 ├── _layout/
 ├── _partials/
 ├── _sass/
-    
-├── vendor
 ├── style.scss
 └── setting.json　サイトタイトルや、ページタイトル、テンプレート等の設定ファイル
 ```
