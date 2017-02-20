@@ -1,5 +1,5 @@
 # html-template
-html5テンプレート。gulp(ejs, sass, server, imagemin)
+html5テンプレート。gulp(ejs, sass, server, imagemin, sprite)
 
 ## 使用方法
 node.jsはインストール済みとする  
@@ -7,42 +7,75 @@ node.jsはインストール済みとする
 2. `cd プロジェクトフォルダ`
 3. `npm install`
 
+### 構造
+```
+dev
+├── assets/
+│    ├── css/
+│    ├── js/
+│    ├── img/
+│    ├── font/
+│    ├── sprite/
+│          ├── hoge/　#ディレクトリがファイル名となる hoge.png
+│          ├── fuga/
+│          │
+│          ・
+│          ・
+│          ・
+│    └── iconfont/　#使用していない
+│
+├── _layout/　#使用していない。
+├── _partials/　#ejsの共通部品 header footer 等
+├── _sass/
+├── style.scss　#サイトメインのstylesheet
+└── setting.json　サイトタイトルやディスクリプション等の設定ファイル
+```
+
 ## 使用例
-初回`gulp`をコマンドして開発  
+初回`gulp`をコマンドして開発
 ローカルサーバーが立ち上がる。  
-ファイル監視するため、自動リロードが実行されるが、
-まだ不安定。   
-その際は手動でブラウザをリロードさせる。
+ファイル監視するため、自動リロードされる。
+`localhost:7000/`または`IP:7000`で確認
+ページを開いたブラウザは同期される。
 
 個別タスク実行も可能
 ### sassコンパイル
 `gulp sass`
 
 ### image最適化
-`gulp image`
+`gulp imagemin`
 
 ### ejsコンパイル
 `gulp ejs`
 
-### 画像最適化
-`gulp image`
+### スプライト生成
+`gulp sprite`
 
-## distないのファイル削除
+### リリースファイル削除
 `gulp clean`
 
 
-一応スプライト作成のタスクも作成しているが、  
-動作するかは未確認。
 
-#### html
-
-ejs/pageディレクトリにページファイルを作成する。
-ページを増やす場合は pages.jsonに追加  
-
-{  
-　　"id": "ページid", (ファイル名となる)  
-　　"title": "タイトル",  
-　　"description": "ディスクリプション",  
-　　"keywords": "キーワード",  
-　　"page": "_page" (pageディレクトリに作ったファイル名を記述する。)  
-},
+## サイト設定
+```JSON
+{
+    "site": {
+        "title"          : "サイト名",
+        "description"    : "デスクリプション",
+        "keywords"       : "キーワード",
+        "author"         : "",
+        "rootUrl"        : "http://example.com/",
+        "ogpImage"       : "http://example.com/images/og-image.jpg",
+        "facebookAdmins" : "",
+        "facebookAppId"  : "",
+        "twitterCard"    : "summary",
+        "twitterSite"    : "@",
+        "favicon"        : "",
+        "appleIcon"      : "",
+        "appTitle"       : "",
+        "analyticsId"    : "UA-XXXXX-X",
+        "develop"        : "dev/",  #開発フォルダ
+        "release"        : "release/"  #リリースフォルダ
+    }
+}
+```

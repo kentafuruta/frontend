@@ -226,6 +226,7 @@ gulp.task('copy', function() {
 gulp.task('clean', function(cb) {
   var dir = [
     './**/.DS_Store',
+    site.release
   ];
   return del(dir, cb);
 });
