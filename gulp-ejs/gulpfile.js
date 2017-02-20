@@ -19,7 +19,8 @@ var gulp        = require('gulp'),
     consolidate = require('gulp-consolidate'),
     size        = require('gulp-size'),
     lodash      = require('lodash'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    runSequence = require('run-sequence');
 
 // dir_path内のフォルダを取得
 var getFolders = function(dir_path) {
@@ -30,6 +31,33 @@ var getFolders = function(dir_path) {
 // site設定JSON取得
 var jsonData = JSON.parse(fs.readFileSync('setting.json', 'utf8')),
     site     = jsonData.site;
+
+/********************************************
+ * defaultタスク
+ *********************************************/
+gulp.task('default', ['server']);
+
+/********************************************
+ * buildタスク
+ *********************************************/
+gulp.task('build', function(callback) {
+  runSequence('clean', 'sprite', ['ejs', 'sass', 'imagemin', 'copy'], callback);
+});
+
+/********************************************
+ * serverタスク
+ *********************************************/
+gulp.task('server', ['build'], function () {
+  browserSync.init({
+    server: site.release,
+    port: 7000
+  });
+  gulp.watch(site.develop + '**/*.ejs', ['ejs']);
+  gulp.watch(site.develop + '/**/*.scss', ['sass']);
+  gulp.watch([site.develop + '**/*.{png,jpg,gif,svg}', '!' + site.develop + 'assets/iconfont/*.svg', '!' + site.develop + 'assets/font/*.svg', '!' + site.develop + 'assets/sprite/**/*.png'], ['imagemin']);
+  gulp.watch(site.develop + 'assets/sprite/**/*.png', ['sprite']);
+  gulp.watch([site.develop + 'js/*', site.develop + 'font/*'], ['copy']);
+});
 
 /********************************************
  * ejsタスク
@@ -187,11 +215,9 @@ gulp.task('iconfont', function() {
  * copyタスク
  *********************************************/
 gulp.task('copy', function() {
-  return gulp.src([
-    'src/js/*',
-    'src/font/*',
-  ],{ base: 'src' })
-  .pipe(gulp.dest('dist/'));
+  return gulp.src([site.develop + '**/js/*', site.develop + '**/font/*'], { base: site.develop })
+  .pipe(gulp.dest(site.release))
+  .pipe(browserSync.reload({stream: true}));;
 });
 
 /********************************************
@@ -203,26 +229,3 @@ gulp.task('clean', function(cb) {
   ];
   return del(dir, cb);
 });
-
-/********************************************
- * serverタスク
- *********************************************/
-gulp.task('server', ['copy', 'sass', 'image', 'ejs'], function () {
-  browserSync.init({
-    server: release.root,
-    port: 7000
-  });
-
-  gulp.watch('src/sass/**/*', ['sass']);
-  gulp.watch('src/img/*', ['image']);
-  gulp.watch('src/sprite/*.png', ['sass']);
-  gulp.watch('src/js/*', ['js']);
-  gulp.watch('src/font/*', ['font']);
-  gulp.watch('src/ejs/**/*.+(ejs|json)', ['ejs']);
-  gulp.watch('./dist/**/*').on('change', browserSync.reload);
-});
-
-/********************************************
- * gulp実行
- *********************************************/
-gulp.task('default', ['server']);
