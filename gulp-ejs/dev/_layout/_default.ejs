@@ -5,19 +5,19 @@
   </head>
   <% if(page.bodyClass) { %><body class="<%= page.bodyClass %><%= modifier %>"><% } else { %><body><% } %>
     <header id="global-header">
-<%- include('../_partials/_header', {site: site, page: page}) -%>
+<%- include('../_partials/_header', {site: site, page: page}) %>
     </header>
     <main id="main">
       <%_ content %>
     </main>
     <footer id="global-footer">
-      <%- include('../_partials/_footer', {site: site, page: page}) %>
+<%- include('../_partials/_footer', {site: site, page: page}) %>
     </footer>
     <div class="toTop">
       <i class="icon icon-bullet-up"></i>
     </div>
     <!-- Google Analytics -->
-    <%- include('../_partials/_ga', {site: site, page: page}) %>
-    <%- include('../_partials/_scripts', {site: site, page: page}) %>
+<%- include('../_partials/_ga', {site: site, page: page}) %>
+<%- include('../_partials/_scripts', {site: site, page: page}) %>
   </body>
 </html>

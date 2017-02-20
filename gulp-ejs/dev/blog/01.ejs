@@ -1,6 +1,41 @@
----
-layout : _default
-title  : ブログ詳細
-path   : ../
----
-ブログ詳細だよ
+<%
+var absolutePath = __filename.split(site.develop)[__filename.split(site.develop).length -1].replace('.ejs','.html');
+var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+var page = {
+  //layout: "_default",
+  title: "ブログ詳細ページ",
+  description: site.description,
+  keywords: "",
+  bodyClass: "",
+  singleCss: [],
+  singleJs: [],
+  ogpType: "website",
+  ogpImage: site.ogpImage,
+  absolutePath: absolutePath,
+  relativePath: relativePath
+};
+_%>
+<!doctype html>
+<html lang="ja">
+  <head>
+<%- include(page.relativePath + '_partials/_head', {site: site, page: page}) %>
+  </head>
+  <% if(page.bodyClass) { %><body class="<%= page.bodyClass %><%= modifier %>"><% } else { %><body><% } %>
+    <header id="global-header">
+<%- include(page.relativePath + '_partials/_header', {site: site, page: page}) -%>
+    </header>
+    <main id="main">
+      <h1><%= page.title %></h1>
+      <p>本文</p>
+    </main>
+    <footer id="global-footer">
+<%- include(page.relativePath + '_partials/_footer', {site: site, page: page}) %>
+    </footer>
+    <div class="toTop">
+      <i class="icon icon-bullet-up"></i>
+    </div>
+    <!-- Google Analytics -->
+<%- include(page.relativePath + '_partials/_ga', {site: site, page: page}) %>
+<%- include(page.relativePath + '_partials/_scripts', {site: site, page: page}) %>
+  </body>
+</html>
