@@ -1,0 +1,48 @@
+/* clearfix
+---------------------------------------*/
+.clearfix {
+  zoom: 1;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/* PC / SP 出しわけ
+---------------------------------------*/
+.pcNone{
+  display:none;
+}
+.spNone{
+  display:block;
+}
+
+/* hoverでopacity
+---------------------------------------*/
+.alpha{
+  &:hover{
+    opacity:0.85;
+    filter: alpha(opacity=85);
+    -ms-filter: "alpha(opacity=85)";
+    -moz-opacity:0.85;
+    -khtml-opacity: 0.85;
+    zoom:1;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+/* SP
+------------------------------------------------------------------------------- */
+//////////////////////////////////////////////////////////////////////////////////
+@media only screen and (max-width: $g_breakpointSP) {
+  /* PC / SP 出しわけ
+  ---------------------------------------*/
+  .pcNone{
+    display:block;
+  }
+  .spNone{
+    display:none;
+  }
+  
+}

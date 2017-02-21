@@ -1,0 +1,10 @@
+////////////////////////////////////////
+//　フォントサイズと行間
+////////////////////////////////////////
+@mixin font-line($fts, $lin: 20) {
+  $rem: $fts / 10;
+  $linS: $lin / $fts;
+  font-size: #{$fts}px;
+  font-size: #{$rem}rem;
+  line-height: $linS;
+}

@@ -1,0 +1,160 @@
+////////////////////////////////////////
+/* ------------------------------------
+  基本は使用しない。
+  サイト公開後、更新していくうえでの使用や
+  html側で都度対応したい場合用
+------------------------------------- */
+////////////////////////////////////////
+
+.c_both{
+  clear:both important;
+}
+.b_white{
+  background-color:#fff important;
+}
+.b_black{
+  background-color:#000 important;
+}
+.b_gray{
+  background-color:#888 important;
+}
+.b_red{
+  background-color:#f00 important;
+}
+.b_blue{
+  background-color:#00f important;
+}
+.b_green{
+  background-color:#0f0 important;
+}
+.c_white{
+  color:#fff important;
+}
+.c_black{
+  color:#000 important;
+}
+.c_gray{
+  color:#888 important;
+}
+.c_red{
+  color:#f00 important;
+}
+.c_blue{
+  color:#00f important;
+}
+.c_green{
+  color:#0f0 important;
+}
+.d_none{
+  display:none important;
+}
+.d_block{
+  display:block important;
+}
+.d_table{
+  display:table important;
+}
+.d_tablecell{
+  display:table-cell important;
+}
+.d_inline{
+  display:inline important;
+}
+.d_inlineblock{
+  display:inline-block important;
+}
+.f_left{
+  float:left important;
+}
+.f_right{
+  float:right important;
+}
+.f_none{
+  float:none important;
+}
+@for $i from 1 through 20 {
+  .m_top#{$i*5}{
+    margin-top:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .m_bottom#{$i*5}{
+    margin-bottom:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .m_left#{$i*5}{
+    margin-left:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .m_right#{$i*5}{
+    margin-right:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .p_top#{$i*5}{
+    padding-top:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .p_bottom#{$i*5}{
+    padding-bottom:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .p_left#{$i*5}{
+    padding-left:5px *$i important;
+  }
+}
+@for $i from 1 through 20 {
+  .p_right#{$i*5}{
+    padding-right:5px *$i important;
+  }
+}
+.p_relative{
+  position:relative important;
+}
+.p_absolute{
+  position:absolute important;
+}
+.t_underline{
+  text-decoration:underline important;
+}
+.t_none{
+  text-decoration:none important;
+}
+.t_bold{
+  font-weight:bold important;
+}
+.t_center{
+  text-align:center important;
+}
+.t_left{
+  text-align:left important;
+}
+.t_right{
+  text-align:right important;
+}
+.v_top{
+  vertical-align:top important;
+}
+.v_middle{
+  vertical-align:middle important;
+}
+.v_bottom{
+  vertical-align:bottom important;
+}
+.v_hidden{
+  visibility:hidden important;
+}
+.v_visible{
+  visibility:visible important;
+}
+@for $i from 1 through 20 {
+  .w_#{$i*5}{
+    width:5% *$i important;
+  }
+}
+
+

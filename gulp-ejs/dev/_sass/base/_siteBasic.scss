@@ -1,0 +1,67 @@
+html{
+  background:$g_htmlBg;
+  font-size:62.5%;
+}
+body{
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, Roboto, "Droid Sans", sans-serif;
+  background:$g_bodyBg;
+  color:#333;
+  min-width:$g_bodyMinWidth;
+  @include font-line(14,20);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+a{
+  color:#333;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.maxWrap{
+  max-width: $g_maxWrapWidth;
+  margin:0 auto;
+}
+.wrap{
+  width:$g_wrapWidth;
+  margin:0 auto;
+  position:relative;
+  height:inherit;
+}
+#container{
+  #content{
+    #mainColumn{
+      
+    }
+    #subColumn{
+      
+    }
+  }  
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+/* SP
+------------------------------------------------------------------------------- */
+//////////////////////////////////////////////////////////////////////////////////
+@media only screen and (max-width: $g_breakpointSP) {
+  body{
+    min-width:320px;
+  }
+  .wrap{
+    width:auto;
+    margin:0 $g_wrapSPMargin;
+  }
+  #container{
+    #content{
+      #mainColumn{
+
+      }
+      #subColumn{
+
+      }
+    }  
+  }
+  img{
+    max-width: 100%;
+  }
+}
